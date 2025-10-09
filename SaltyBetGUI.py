@@ -129,7 +129,7 @@ class SaltyBetGUI:
         match_type_combo.pack(padx=10, pady=5)
         
         # Wrestlers input section
-        wrestlers_frame = tk.LabelFrame(match_frame, text="Enter Wrestlers", 
+        wrestlers_frame = tk.LabelFrame(match_frame, text="Enter Wrestlers/Teams", 
                                        font=('Arial', 10, 'bold'),
                                        bg='#34495e', fg='white')
         wrestlers_frame.pack(fill='both', expand=True, padx=10, pady=10)
@@ -174,7 +174,7 @@ class SaltyBetGUI:
         self.betting_user_combo.pack(side='left', padx=5)
         
         # Wrestler selection
-        wrestler_frame = tk.LabelFrame(betting_frame, text="Select Wrestler to Bet On", 
+        wrestler_frame = tk.LabelFrame(betting_frame, text="Select Wrestler/Team to Bet On", 
                                       font=('Arial', 10, 'bold'),
                                       bg='#34495e', fg='white')
         wrestler_frame.pack(fill='x', padx=10, pady=10)
@@ -310,8 +310,8 @@ class SaltyBetGUI:
             frame = tk.Frame(self.wrestler_entries_frame, bg='#34495e')
             frame.pack(fill='x', pady=2)
             
-            tk.Label(frame, text=f"Wrestler {i+1}:", 
-                    bg='#34495e', fg='white', font=('Arial', 9), width=12).pack(side='left')
+            tk.Label(frame, text=f"Wrestler/Team {i+1}:", 
+                    bg='#34495e', fg='white', font=('Arial', 9), width=16).pack(side='left')
             
             entry = tk.Entry(frame, font=('Arial', 9), width=20)
             entry.pack(side='left', padx=5)
