@@ -1,14 +1,14 @@
 {
   "Eric": {
     "name": "Eric",
-    "wrestlebucks": 1500,
-    "wins": 1,
-    "losses": 0
+    "wrestlebucks": 1310,
+    "wins": 3,
+    "losses": 2
   },
   "Adam": {
     "name": "Adam",
-    "wrestlebucks": 750,
-    "wins": 0,
-    "losses": 1
+    "wrestlebucks": 796,
+    "wins": 2,
+    "losses": 3
   }
 }
