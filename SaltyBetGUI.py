@@ -468,6 +468,8 @@ class SaltyBetGUI:
         # Clear match
         self.salty_bet.current_match = None
         self.salty_bet.bets = {}
+        # Reset current match label in UI
+        self.current_match_label.config(text="No match set up")
         
         # Display results
         self.results_text.delete(1.0, tk.END)
@@ -497,14 +499,23 @@ class SaltyBetGUI:
         if self.salty_bet.current_match:
             wrestlers = self.salty_bet.current_match['wrestlers']
             self.betting_wrestler_combo['values'] = wrestlers
+            # Clear selection if it's no longer valid
+            if self.betting_wrestler_var.get() not in wrestlers:
+                self.betting_wrestler_var.set("")
+                self.betting_wrestler_combo.set("")
         else:
             self.betting_wrestler_combo['values'] = []
+            # Clear displayed selection when no match
+            self.betting_wrestler_var.set("")
+            self.betting_wrestler_combo.set("")
     
     def update_display(self):
         """Update all GUI displays."""
         self.update_users_display()
         self.update_betting_display()
         self.update_resolution_display()
+        # Ensure betting wrestler options reflect current match state
+        self.update_betting_options()
         self.update_stats_display()
     
     def update_users_display(self):
@@ -544,8 +555,15 @@ class SaltyBetGUI:
         if self.salty_bet.current_match:
             wrestlers = self.salty_bet.current_match['wrestlers']
             self.winner_combo['values'] = wrestlers
+            # Clear selection if it's no longer valid
+            if self.winner_var.get() not in wrestlers:
+                self.winner_var.set("")
+                self.winner_combo.set("")
         else:
             self.winner_combo['values'] = []
+            # Clear displayed selection when no match
+            self.winner_var.set("")
+            self.winner_combo.set("")
     
     def update_stats_display(self):
         """Update the statistics display."""
