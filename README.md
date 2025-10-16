@@ -1,6 +1,6 @@
 # Salty Bet
 
-A simple Python program for betting on fake wrestling matches with both command-line and GUI interfaces.
+A simple Python program for betting on fake wrestling/sports matches with both command-line and GUI interfaces.
 
 ## Features
 
