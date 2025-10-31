@@ -512,19 +512,15 @@ class SaltyBetGUI:
                 "Error", f"Wrestler '{wrestler}' is not in the current match!")
             return
 
-        # Get user and validate bet
+        # Get user and place bet using backend method
         user = self.salty_bet.users[user_name]
-
-        if amount > user.wrestlebucks:
-            messagebox.showerror("Error", "Insufficient WrestleBucks!")
+        success, message = user.place_bet(amount)
+        
+        if not success:
+            messagebox.showerror("Error", message)
             return
 
-        if amount <= 0:
-            messagebox.showerror("Error", "Bet amount must be positive!")
-            return
-
-        # Place the bet
-        user.wrestlebucks -= amount
+        # Record the bet in the match
         self.salty_bet.bets[user_name] = {
             'wrestler': wrestler,
             'amount': amount
